@@ -12,7 +12,7 @@ $x = "";
 
 if(empty($x)){
     echo("EMPTY");
-}else{
+}else{    
     echo("NOT EMPTY");
 }
 
