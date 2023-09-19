@@ -1,0 +1,23 @@
+#page-wrap{
+	width:900px;
+	margin: 0 auto;
+	background-color: lightgray;
+}
+
+#banner{
+	height:90px;
+	background-color: darkgray;
+}
+
+#content{
+	min-height:200px;
+	background-color: white;
+}
+
+#footer{
+	height:30px;
+	font-size: 10px;
+	background-color: darkgray;
+}
+
+nav li{display: inline-block;}
