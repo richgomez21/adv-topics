@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
   $crust = $_POST['crust'];
 
-  $meats = $_POST['meat'] ?? [];
+  $meats = $_POST['meat'] ?? [];// ?? = null coalescing operator
   // var_dump($meats);
 
   $veggies = $_POST['veggies'] ?? [];
