@@ -42,6 +42,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 	}else{
 		//TODO: Insert User
+		$qStr = "INSERT INTO users (user_first_name, user_last_name) VALUES ()"
 	}
 	// redirect back to user-list page
 	header("Location:user-list.php");
