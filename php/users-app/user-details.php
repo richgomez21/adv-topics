@@ -24,6 +24,33 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 	// var_dump($user);	
 	
 	// Validate the data posted
+	if(empty($user['user_first_name'])){
+		header("Status:400");
+	}
+
+	if(empty($user['user_last_name'])){
+		header("Status:400");
+	}
+
+	if(empty($user['user_id'])){
+		header("Status:400");
+	}
+
+	if(empty($user['user_email'])){
+		header("Status:400");
+	}
+
+	if(empty($user['user_password'])){
+		header("Status:400");
+	}
+
+	if(empty($user['user_role'])){
+		header("Status:400");
+	}
+	
+	if(empty($user['user_active'])){
+		header("Status:400");
+	}
 
 	// Update (or insert) the user
 	if($user['user_id'] > 0){
@@ -42,7 +69,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 	}else{
 		//TODO: Insert User
-		$qStr = "INSERT INTO users (user_first_name, user_last_name) VALUES ()"
+		$qStr = "INSERT INTO users (user_first_name, user_last_name, user_email, user_password, user_salt, user_role, user_active)
+				VALUES ({$user['user_first_name']}, {$user['user_last_name']}, {$user['user_email']}, 
+				{$user['user_password']}, 'xxx', {$user['user_role']}, {$user['user_active']})";
+				$result = mysqli_query($link, $qStr);	
+				// var_dump($result);
 	}
 	// redirect back to user-list page
 	header("Location:user-list.php");
@@ -81,7 +112,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 <body>
 
 	<form method="POST" action="<?= $_SERVER['PHP_SELF'] ?>">
-		<input type="hidden" name="user_id" value="<?php echo($user['user_id']); ?>" />
+		<input type="hidden" name="user_id" value="<?= $user['user_id'] ?>" /> <!-- another way to echo -->
 		<label>First Name:</label> 
 		<input type="text" name="user_first_name" value="<?php echo($user['user_first_name']); ?>" />
 		<label>Last Name:</label> 
