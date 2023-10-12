@@ -17,6 +17,23 @@ $u2 = new User($row);
 
 var_dump($u2);
 
+var_dump($u2->is_valid());
+
+$rows = [
+    ["user_id" => 1, "user_first_name" => "Greg", "user_last_name" => "Heffley"],
+    ["user_id" => 2, "user_first_name" => "K", "user_last_name" => "DOT"],
+    ["user_id" => 3, "user_first_name" => "Big", "user_last_name" => "SCARR"]
+];
+
+$users = [];
+
+foreach($rows as $row){
+    $users[] = new User($row);
+};
+
+var_dump($users);
+
+
 
 
 ?>

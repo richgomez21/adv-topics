@@ -15,5 +15,21 @@ class User {
         $this->lastName = $args['user_last_name'] ?? "";
     }
 
+    function is_valid(){
+        if(!($this->id >= 0)){
+            return false;
+        }
+
+        if(empty($this->firstName)){
+            return false;
+        }
+
+        if(empty($this->lastName)){
+            return false;
+        }
+
+        return true;
+    }
+
 
 }
