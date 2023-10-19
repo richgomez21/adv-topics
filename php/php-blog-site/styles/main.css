@@ -1,0 +1,167 @@
+html, body {
+    height:100%;
+    width:100%;
+    padding:0;
+    margin:0;
+    font-family: arial;
+ }
+
+ body {
+    display:flex;
+    flex-direction:column; /*to make the children of the body stack vertically*/
+ }
+ 
+ h1{font-size: 180%;}
+ h2{font-size: 150%;}
+ h3{font-size: 120%;}
+
+ header {
+    height:70px;
+    background-color: midnightblue;
+    position: relative;
+    flex-shrink: 0; 
+    /*this will prevent the header from shrinking when the #content stretches (due to lots of content)*/
+    /*Try removing flex-shrink and then put a ton of content on the page, you'll notice that the header will shrink*/
+
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding-left: 20px;
+}
+
+header h1{
+    color:white;
+    line-height: 100%;
+    font-size: 36px;
+}
+
+ #menu-button{
+     position: absolute;
+     top: 0;
+     right: 0;
+     height: 44px;
+     width: 44px;
+     background-color: midnightblue;
+     display: none;
+     line-height: 44px;
+     text-align: center;
+     font-size: 30px;
+     font-weight: bold;
+     color:white;
+ }
+
+ #menu{
+    background-color: lightblue;
+ }
+
+ #menu ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+	margin-left: 20px;
+}
+
+#menu li{
+    padding: 0;
+    margin: 0;
+    margin-right:10px;
+    display: inline-block;
+}
+
+#menu a{
+    text-decoration: none;
+    color: #333;
+    display:inline-block;
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    padding-left: 15px;
+}
+
+#menu a:hover{
+    background-color: midnightblue;
+	color: white;
+}
+
+ #content {
+    /* flex: auto; */
+    display: flex;
+    /* flex-direction: row; */
+    /* flex-grow: 1; */
+ }
+
+ main{
+     /*background-color:#ccc;*/
+     width: 80%;
+     box-sizing: border-box;
+     padding:30px;
+ }
+
+ aside{
+     width: 20%;
+     box-sizing: border-box;
+     padding: 30px;
+ }
+
+ footer {
+	display: flex;
+	padding-left: 20px;
+    height:40px;
+    background-color: midnightblue;
+    flex-shrink: 0;
+	align-items: center;
+	color: white;
+	font-size: 70%;
+ }
+
+ @media all and (max-width : 800px) {
+    
+    body{
+        display:block;
+    }
+
+    header{
+        height:44px;
+    }
+
+    #content{
+        display: block;
+    }
+
+     main, aside{
+         width: 100%
+     }
+
+     #menu-button{
+         display: block;
+     }
+
+     #menu{
+        position: absolute;
+        top: 44px; /*44 for the button height*/
+        bottom: 0px;
+        width: 0px;
+        overflow-x: hidden;
+        transition: width 1s;
+        white-space: nowrap;
+    }
+
+    #menu ul{
+        margin: 0;
+        padding: 0;
+    }
+
+    #menu li{
+        padding: 0;
+        margin: 0;
+        display: block;
+    }
+
+    #menu a{
+        /* padding-right: 0px; */
+    }
+
+    #menu.open{
+        width: 200px;
+    }
+ }
