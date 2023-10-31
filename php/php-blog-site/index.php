@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 include("includes/config.inc.php");
 $pageTitle = "Welcome to My PHP Site";
 $pageDescription = "This is the homepage for my PHP Blog Site";
@@ -18,4 +18,4 @@ include("includes/header.inc.php");
     </div><!--end of #content div-->
     <footer>&copy; 2023 RICHARD GOMEZ</footer>
 </body>
-</html> -->
+</html>

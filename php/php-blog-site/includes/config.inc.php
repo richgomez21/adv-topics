@@ -1,6 +1,6 @@
 <?php
-include("custom-error-handler.inc.php");
-include("custom-exception-handler.inc.php");
+include("custom-error-handler.php");
+include("custom-exception-handler.php");
 
 if($_SERVER['SERVER_NAME'] == 'localhost'){
     define("PROJECT_FOLDER", "/php-blog-site/");
