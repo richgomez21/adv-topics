@@ -3,7 +3,11 @@ include("includes/config.inc.php");
 $pageTitle = "Welcome to My PHP Site";
 $pageDescription = "This is the homepage for my PHP Blog Site";
 include("includes/header.inc.php");
-// throw new Exception("THIS IS A TEST");
+// TESTING OUR ERROR AND EXCEPTION HANDLERS
+// error testing below
+// echo($x);
+// exception testing below
+// throw new Exception("This is an EXCEPTION test");
 ?>
 
 
@@ -15,7 +19,7 @@ include("includes/header.inc.php");
 				Side Bar
 		</aside>
 
-    </div><!--end of #content div-->
-    <footer>&copy; 2023 RICHARD GOMEZ</footer>
-</body>
-</html>
+
+<?php
+include("includes/footer.inc.php");
+?>

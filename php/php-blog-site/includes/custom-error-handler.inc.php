@@ -33,7 +33,6 @@ function myErrorHandler($errno, $errstr, $errfile, $errline){
 		mail(SITE_ADMIN_EMAIL, SITE_DOMAIN . " - ERROR", $str);
 		// header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);
 		header("Location: " . PROJECT_FOLDER . "error.php");
-
 	}
 }
 

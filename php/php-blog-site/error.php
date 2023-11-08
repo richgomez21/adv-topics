@@ -1,19 +1,25 @@
 <?php
 include("includes/config.inc.php");
-$pageTitle = "Sorry for da error";
-$pageDescription = "error page";
+$pageTitle = "Sorry for the error";
+$pageDescription = "Error page";
 include("includes/header.inc.php");
+// TESTING OUR ERROR AND EXCEPTION HANDLERS
+// error testing below
+// echo($x);
+// exception testing below
+// throw new Exception("This is an EXCEPTION test"); - exception
 ?>
 
+
 		<main>
-			<h1>SORRY</h1>
-			<p>SORRY</p>
+			<h1>Sorry!</h1>
+			<p>We are working on the error</p>
 		</main>
 		<aside>
 				Side Bar
 		</aside>
 
-    </div><!--end of #content div-->
-    <footer>&copy; 2023 RICHARD GOMEZ</footer>
-</body>
-</html>
+
+<?php
+include("includes/footer.inc.php");
+?>

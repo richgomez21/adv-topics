@@ -4,40 +4,28 @@ $pageTitle = "Blog";
 $pageDescription = "A listing of links to blog posts";
 include("../includes/header.inc.php");
 
-$host = "localhost";
-$db = "php_blog_site";
-$user = "root";
-$password = "test";
 
-$link = mysqli_connect($host, $user, $password, $db);
-// var_dump($link);
 
-$qStr = "SELECT * FROM pages WHERE published IS NOT NULL";
+// get_link() is in the config.inc.php for access to the DB
+include('../includes/PageDataAccess.inc.php');
+$da = new PageDataAccess(get_link());
+$allPosts = $da->getAll();
 
-$result = mysqli_query($link, $qStr);
-// var_dump($result);
 
-$allPosts = [];
-while($row = mysqli_fetch_assoc($result)){
-	$post = [];
-	$post["id"] = htmlentities($row['id']);
-	$post["title"] = htmlentities($row['title']);
-	$post["description"] = htmlentities($row['description']);
-	$allPosts[] = $post;
-}
-// var_dump($allPosts);
-
-function createPostLists($posts){
+// creating a function that puts the title as a link and the description (as html elements) into the $html variable and returns it.
+function createPostList($posts){
 	$html = "<ol>";
 
 	foreach($posts as $p){
 		$html .= "<li>";
-		$html .= "<h2><a href='blog-page.php?id={$p["id"]}'>{$p["title"]}</a></h2>";
+		$html .= "<h2><a href='blog-page.php?id={$p['id']}'>{$p["title"]}</a></h2>";
 		$html .= "<p>{$p["description"]}</p>";
 		$html .= "</li>";
+
 	}
 
 	$html .= "</ol>";
+
 	return $html;
 }
 
@@ -46,11 +34,14 @@ function createPostLists($posts){
 
 		<main>
 			<h1>Blog List</h1>
-			<?php echo(createPostLists($allPosts)); ?>
+			<!-- below php code means echo() out what is inside the tags: 
+			<.?php echo(createPostList($allPosts)) ?> (without the dot)-->
+			<p><?= createPostList($allPosts); ?></p>
 		</main>
 		<aside>
 				Side Bar
 		</aside>
+		
 
 <?php
 include("../includes/footer.inc.php");
