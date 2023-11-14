@@ -1,4 +1,7 @@
-</div><!--end of #content div-->
-    <footer>&copy; 2023 YOUR NAME</footer>
+</div>
+    <div id="footer">
+      Now THIS, is a footer..
+    </div>
+  </div>
 </body>
 </html>
